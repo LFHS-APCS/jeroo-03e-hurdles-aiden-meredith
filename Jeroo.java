@@ -37,7 +37,7 @@ public void jump() {
            hop();
          }
          turn(RIGHT);
-         while (isClear(AHEAD))
+         while (!isWater(AHEAD))
          {
            hop();
          }
