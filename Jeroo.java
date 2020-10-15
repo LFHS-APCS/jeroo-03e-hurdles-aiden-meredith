@@ -2,8 +2,7 @@
  * Put your Jeroo methods in this class.
  * @author Steve Aronson
  */
-public class Jeroo extends JerooBase {
-
+public class Jeroo extends JerooBase { 
     /** 
      * precondition: robot is facing east on the ground in front of 
      * hurdles made out of nets that are arbitrarily tall and far apart
@@ -13,8 +12,40 @@ public class Jeroo extends JerooBase {
 
     public void hurdles()
     {
+      while (!isFlower(HERE))
+      {
+    
+         if (!isNet(AHEAD)){
+           hop();
+         } else {
+            jump();
+         }
+    
+  } 
+}
+public void jump() {
+         turn(LEFT);
 
-    }
+         while (isNet(RIGHT))
+         {
+           hop();
+         }
+         turn(RIGHT);
+         hop();
+         while (isNet(RIGHT))
+         {
+           hop();
+         }
+         turn(RIGHT);
+         while (isClear(AHEAD))
+         {
+           hop();
+         }
+         turn(LEFT);
+}
+
+    
+       
 
     // Do NOT touch the code below here
     public Jeroo() {super();}
@@ -28,5 +59,5 @@ public class Jeroo extends JerooBase {
     public Jeroo(int y, int x, int flowers) { super (y, x, flowers);}
 
     public Jeroo(int y, int x, CompassDirection direction, int flowers) { super(y, x, direction, flowers);}
-}
 
+}
